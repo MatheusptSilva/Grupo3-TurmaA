@@ -16,13 +16,13 @@ public class Jogo {
 		System.out.println("\n 1|SIM, estou pronto!       2|Talvez, não sei o que me espera...           3|Não, tenho medo!!!");
 		int responder = entrada.nextInt();
 		if(responder == 1) {
-			Escreve("Muito bem... Muito bem... Vejamos só, temos um corajoso por aqui! A grande matrix amará enfrentá-lo HAHAHAH. Vejamos se é capaz de vencer um computador!!!!", TimeUnit.MICROSECONDS, temp_dialog);
+			Escreve("Muito bem... Muito bem... Vejamos só, temos um corajoso por aqui! A grande matrix amará enfrentá-lo HAHAHAH. Vejamos se é capaz de vencer um computador!!!!", TimeUnit.MILLISECONDS, temp_dialog);
 			menu();
 		} else if(responder == 2) {
 			Escreve("Ora, ora... Achei que era mais corajoso, pobre criatura... Está ai, um grande motivo pelo qual os computadores são bem mais desenvolvidos e ultrapassaram a raça humana!", TimeUnit.MILLISECONDS, temp_dialog);
 			menu();
 		}else if(responder ==3) {
-			Escreve("Vejamos só o que temos por aqui: o pior da peste humana! Chorará e lamentará no reinado das máquinas, já está aqui verme... PROSSIGA!", TimeUnit.MICROSECONDS, temp_dialog);
+			Escreve("Vejamos só o que temos por aqui: o pior da peste humana! Chorará e lamentará no reinado das máquinas, já está aqui verme... PROSSIGA!", TimeUnit.MILLISECONDS, temp_dialog);
 			menu();
 		}
 		
@@ -39,6 +39,10 @@ public class Jogo {
 		
 	
 
-	static void menu() {
-		
-	}
+	 static void menu() throws Exception {
+		    Scanner entrada = new Scanner (System.in);
+		    int escolha_menu;
+		    
+	 }
+
+}
