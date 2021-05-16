@@ -10,8 +10,8 @@ public class Jogo {
 	public static void main(String[] args) throws Exception {
 		Scanner entrada = new Scanner(System.in);
 
-		Escreve("\n *-----------* Seja Bem Vindo ao Jogo *-----------*", TimeUnit.MILLISECONDS, temp_dialog);
-		Escreve("\n                 O ÚLTIMO DE NÓS                   ", TimeUnit.MILLISECONDS, temp_dialog);
+		Escreve("\n *-----------* ·SEJA BEM VINDO AO JOGO· *-----------*", TimeUnit.MILLISECONDS, temp_dialog);
+		Escreve("\n                   O ÚLTIMO DE NÓS                   ", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println("\n   ");
 		Escreve("\n Você está preparado para encarar o futuro... meu caro jogador?", TimeUnit.MILLISECONDS,
 				temp_dialog);
@@ -46,7 +46,7 @@ public class Jogo {
 		Scanner entrada = new Scanner(System.in);
 		int opcao_menu;
 		do {
-			Escreve("\n\n..::×  O ÚLTIMO DE NÓS  ×::.. \n\n1 - Jogar \n2 - Sobre o Jogo\n3 - Créditos \n4 - Sair",
+			Escreve("\n\n..::×  ·O ÚLTIMO DE NÓS·  ×::.. \n\n1 - Jogar \n2 - Sobre o Jogo\n3 - Créditos \n4 - Sair",
 					TimeUnit.MILLISECONDS, temp_transicao);
 			System.out.println("\n");
 			opcao_menu = entrada.nextInt();
@@ -72,6 +72,18 @@ public class Jogo {
 	}
 
 	static void creditos() throws Exception {
-
+		Scanner entrada = new Scanner (System.in);
+        int opcao_menu, temp_narrativa = 150;
+        System.out.println("SENAC - SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL \nJogo elaborado para o PROJETO INTEGRADOR para a matéria de PI, no curso de ANÁLISE E DESENVOLVIMENTO DE SISTEMAS! \nParticiparam ativamente da criação do jogo rpg textual(desenvolvedores):");
+        
+        Escreve("\n\n-> •Guilherme Alves \n-> •Vinícius Santana \n-> •Matheus Thome \n-> •Gustavo Souza",TimeUnit.MILLISECONDS, temp_narrativa);
+        do{
+        System.out.println("\n2 - Sair");
+        opcao_menu = entrada.nextInt();
+        if(opcao_menu == 2){
+          menu();
+        }else{
+           System.out.println("\nOpção inválida, digite novamente: ");
+        }}while(opcao_menu!=2);
+     }
 	}
-}
