@@ -10,26 +10,26 @@ public class Jogo {
 
 	public static void main(String[] args) throws Exception {
 		Scanner entrada = new Scanner(System.in);
-
-		Escreve("\n *-----------* ·SEJA BEM VINDO AO JOGO· *-----------*", TimeUnit.MILLISECONDS, temp_dialog);
-		Escreve("\n                   O ÚLTIMO DE NÓS                   ", TimeUnit.MILLISECONDS, temp_dialog);
+  
+		Escreve("\n                                                  *-----------* Â·SEJA BEM VINDO AO JOGOÂ· *-----------*", TimeUnit.MILLISECONDS, temp_dialog);
+		Escreve("\n                                                                    O ÃšLTIMO DE NÃ“S                   ", TimeUnit.MILLISECONDS, temp_dialog);
 		System.out.println("\n   ");
-		Escreve("\n Você está preparado para encarar o futuro... meu caro jogador?", TimeUnit.MILLISECONDS,
+		Escreve("\n VocÃª estÃ¡ preparado para encarar o futuro... meu caro jogador?", TimeUnit.MILLISECONDS,
 				temp_dialog);
 		System.out.println("\n ");
 		System.out.println(
-				"\n 1|SIM, estou pronto!       2|Talvez, não sei o que me espera...           3|Não, tenho medo!!!");
+				"\n 1|SIM, estou pronto!       2|Talvez, nÃ£o sei o que me espera...           3|NÃ£o, tenho medo!!!");
 		int responder = entrada.nextInt();
 		if (responder == 1) {
-			Escreve("Muito bem... Muito bem... Vejamos só, temos um corajoso por aqui! A grande matrix amará enfrentá-lo HAHAHAH. Vejamos se é capaz de vencer um computador!!!!",
+			Escreve("Muito bem... Muito bem... Vejamos sÃ³, temos um corajoso por aqui! A grande matrix amarÃ¡ enfrentÃ¡-lo HAHAHAH. Vejamos se Ã© capaz de vencer um computador!!!!",
 					TimeUnit.MILLISECONDS, temp_dialog);
 			menu();
 		} else if (responder == 2) {
-			Escreve("Ora, ora... Achei que era mais corajoso, pobre criatura... Está ai, um grande motivo pelo qual os computadores são bem mais desenvolvidos e ultrapassaram a raça humana!",
+			Escreve("Ora, ora... Achei que era mais corajoso, pobre criatura... EstÃ¡ ai, um grande motivo pelo qual os computadores sÃ£o bem mais desenvolvidos e ultrapassaram a raÃ§a humana!",
 					TimeUnit.MILLISECONDS, temp_dialog);
 			menu();
 		} else if (responder == 3) {
-			Escreve("Vejamos só o que temos por aqui: o pior da peste humana! Chorará e lamentará no reinado das máquinas, já está aqui verme... PROSSIGA!",
+			Escreve("Vejamos sÃ³ o que temos por aqui: o pior da peste humana! ChorarÃ¡ e lamentarÃ¡ no reinado das mÃ¡quinas, jÃ¡ estÃ¡ aqui verme... PROSSIGA!",
 					TimeUnit.MILLISECONDS, temp_dialog);
 			menu();
 		}
@@ -47,7 +47,7 @@ public class Jogo {
 		Scanner entrada = new Scanner(System.in);
 		int opcao_menu;
 		do {
-			Escreve("\n\n..::×  ·O ÚLTIMO DE NÓS·  ×::.. \n\n1 - Jogar \n2 - Sobre o Jogo\n3 - Créditos \n4 - Sair",
+			Escreve("\n\n..::Ã—  Â·O ÃšLTIMO DE NÃ“SÂ·  Ã—::.. \n\n1 - Jogar \n2 - Sobre o Jogo\n3 - CrÃ©ditos \n4 - Sair",
 					TimeUnit.MILLISECONDS, temp_transicao);
 			System.out.println("\n");
 			opcao_menu = entrada.nextInt();
@@ -55,175 +55,235 @@ public class Jogo {
 				jogar();
 			} else if (opcao_menu == 2) {
 				sobre();
+				Escreve("O jogo se passa no ano de 2035 baseado no filme eu robÃ´, onde o nosso personagem Will Smith, apÃ³s acordar de "
+						+ " um coma induzido se depera com o dominio das maquinas sobre a humanidade."
+						+ "\nNo jogo as perguntas sÃ£o sobre a materia de conceitos da computaÃ§Ã£o e todas de alternativas, por tanto leia atentamente "
+						+ "as perguntas e digite a resposta que desejar, porÃ©m tome cuidade, pois vocÃª terÃ¡ chances limitadas.", TimeUnit.MILLISECONDS, temp_dialog);
 			} else if (opcao_menu == 3) {
 				creditos();
 			} else if (opcao_menu == 4) {
 				System.exit(0);
 			} else {
-				System.out.println("\nOpção inválida, digite novamente: ");
+				System.out.println("\nOpÃ§Ã£o invÃ¡lida, digite novamente: ");
 			}
 		} while (opcao_menu != 1 && opcao_menu != 2 && opcao_menu != 3 && opcao_menu != 4);
+		
+	     menu();
 	}
+	
 
 	static void jogar() throws Exception {
 		Scanner entrada = new Scanner(System.in);
 
-        int acerto = 0;
-
+        char resposta1, resposta2, resposta3, resposta4, resposta5, resposta6;
+        int cont = 1;
+        int vidas = 3; 
+        
+        do {
+        	 System.out.println("                                     +-------------------+");
+             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
+             System.out.println("                                     +-------------------+");
+        	
         // Pergunta 1
-        System.out.println("*--Pergunta 1--*");        
-        System.out.println("45 em binário?");
-        System.out.println("A - 101101");
+        Escreve("--Pergunta 1--",  TimeUnit.MILLISECONDS, temp_dialog);                                 
+        Escreve("\n45 em binÃ¡rio ?",  TimeUnit.MILLISECONDS, temp_dialog);
+        System.out.println("\nA - 101101");
         System.out.println("B - 010011");
         System.out.println("C - 111111");
         System.out.println("D - 000011");
         System.out.println("E - 110011");
-        String resposta1 = entrada.nextLine();
-
-        resposta1 = resposta1.toUpperCase();
         
+        System.out.print("Digite a opÃ§Ã£o desejada: ");
+        resposta1 = entrada.next().charAt(0);
+        //resposta1 = resposta1.toUpperCase();
+       
         switch(resposta1) {
-            case "A":
-                System.out.println("Você acertou!");
-
+            case 'A':
+                System.out.println("******* VOCÃŠ ACERTOU *******\n");
+               
                 break;
-            case "B":
-            case "C":
-            case "D":
-            case "E":
-                System.out.println("Você errou!");
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+                Escreve("VocÃª errou!, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                cont = cont + 1;
+                break;
             default:
-                System.out.println("Você errou!");
-        }
-
+                Escreve("OpÃ§Ã£o invÃ¡lida!\n", TimeUnit.MILLISECONDS, temp_dialog);
+         }
+        
+        }while(resposta1 != 'A' && cont<3);
+            
+            
+        do {
+        	 System.out.println("                                     +-------------------+");
+             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
+             System.out.println("                                     +-------------------+");
+        	
         // Pergunta 2
-        System.out.println("*--Pergunta 2--*");        
-        System.out.println("10101 em Decimal");
-        System.out.println("A - 24");
+        Escreve("--Pergunta 2--",  TimeUnit.MILLISECONDS, temp_dialog);       
+        Escreve("\n10101 em Decimal ? ",  TimeUnit.MILLISECONDS, temp_dialog);
+        System.out.println("\nA - 24");
         System.out.println("B - 99");
         System.out.println("C - 25");
         System.out.println("D - 21");
         System.out.println("E - 15");
-        String resposta2 = entrada.nextLine();
-
-        resposta2 = resposta2.toUpperCase();
+        
+        System.out.print("Digite a opÃ§Ã£o desejada: ");
+        resposta2 = entrada.next().charAt(0);
+       // resposta2 = resposta2.toUpperCase();
         
         switch(resposta2) {
-            case "D":
-                System.out.println("Você acertou!");
-
+            case 'D':
+                System.out.println("******* VOCÃŠ ACERTOU *******\n");
                 break;
-            case "B":
-            case "C":
-            case "A":
-            case "E":
-                System.out.println("Você errou!");
+            case 'B':
+            case 'C':
+            case 'A':
+            case 'E':
+                Escreve("VocÃª errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                break;
             default:
-                System.out.println("Você errou!");
+                Escreve("OpÃ§Ã£o invÃ¡lida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-
+        }while(resposta2 != 'D');
+        
+        
+        do {
+        	 System.out.println("                                     +-------------------+");
+             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
+             System.out.println("                                     +-------------------+");
+        	
         // Pergunta 3        
-        System.out.println("*--Pergunta 3--*");        
-        System.out.println("58 em binário?");
-        System.out.println("A - 011111");
+        Escreve("--Pergunta 3--",  TimeUnit.MILLISECONDS, temp_dialog);        
+        Escreve("\n58 em binÃ¡rio ?",  TimeUnit.MILLISECONDS, temp_dialog);
+        System.out.println("\nA - 011111");
         System.out.println("B - 111011");
         System.out.println("C - 111010");
         System.out.println("D - 111001");
         System.out.println("E - 100000");
-        String resposta3 = entrada.nextLine();
-
-        resposta3 = resposta3.toUpperCase();
+        
+        System.out.print("Digite a opÃ§Ã£o desejada: ");
+        resposta3 = entrada.next().charAt(0);
+        //resposta3 = resposta3.toUpperCase();
         
         switch(resposta3) {
-            case "C":
-                System.out.println("Você acertou!");
-
+            case 'C':
+                System.out.println("******* VOCÃŠ ACERTOU *******\n");
                 break;
-            case "B":
-            case "A":
-            case "D":
-            case "E":
-                System.out.println("Você errou!");
+            case 'B':
+            case 'A':
+            case 'D':
+            case 'E':
+                Escreve("VocÃª errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                break;
             default:
-                System.out.println("Você errou!");
+                Escreve("OpÃ§Ã£o invÃ¡lida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-
+        }while(resposta3 != 'C');
+      
+        
+        do {
+        	 System.out.println("                                     +-------------------+");
+             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
+             System.out.println("                                     +-------------------+");
+        	
         // Pergunta 4
-        System.out.println("*--Pergunta 4--*");        
-        System.out.println("AF5 em decimal?");
-        System.out.println("A - 5.365");
+        Escreve("--Pergunta 4--",  TimeUnit.MILLISECONDS, temp_dialog);    
+        Escreve("\nAF5 em decimal ?",  TimeUnit.MILLISECONDS, temp_dialog);
+        System.out.println("\nA - 5.365");
         System.out.println("B - 5.000");
         System.out.println("C - 300");
         System.out.println("D - 6.000");
         System.out.println("E - 5.360");
-        String resposta4 = entrada.nextLine();
-
-        resposta4 = resposta4.toUpperCase();
+        
+        System.out.print("Digite a opÃ§Ã£o desejada: ");
+        resposta4 = entrada.next().charAt(0);
+        //resposta4 = resposta4.toUpperCase();
         
         switch(resposta4) {
-            case "A":
-                System.out.println("Você acertou!");
-
+            case 'A':
+                System.out.println("******* VOCÃŠ ACERTOU *******\n");
                 break;
-            case "B":
-            case "C":
-            case "D":
-            case "E":
-                System.out.println("Você errou!");
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+                Escreve("VocÃª errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                break;
             default:
-                System.out.println("Você errou!");
+                Escreve("OpÃ§Ã£o invÃ¡lida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-
-        System.out.println("*--Pergunta 4--*");        
-        System.out.println("F17 em octal?");
-        System.out.println("A - 7.00");
+        }while(resposta4 != 'A');
+       
+        
+        do {
+        	 System.out.println("                                     +-------------------+");
+             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
+             System.out.println("                                     +-------------------+");
+        	
+        // Pergunta 5	
+        Escreve("--Pergunta 5--",  TimeUnit.MILLISECONDS, temp_dialog);       
+        Escreve("\nF17 em octal ?",  TimeUnit.MILLISECONDS, temp_dialog);
+        System.out.println("\nA - 7.00");
         System.out.println("B - 7.424");
         System.out.println("C - 7.017");
         System.out.println("D - 7.427");
         System.out.println("E - 7.217");
-        String resposta5 = entrada.nextLine();
-
-        resposta5 = resposta5.toUpperCase();
+        
+        System.out.print("Digite a opÃ§Ã£o desejada: ");
+        resposta5 = entrada.next().charAt(0);
+        //resposta5 = resposta5.toUpperCase();
         
         switch(resposta5) {
-            case "D":
-                System.out.println("Você acertou!");
-
+            case 'D':
+                System.out.println("******* VOCÃŠ ACERTOU *******\n");
                 break;
-            case "B":
-            case "C":
-            case "A":
-            case "E":
-                System.out.println("Você errou!");
+            case 'B':
+            case 'C':
+            case 'A':
+            case 'E':
+                Escreve("VocÃª errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                break;
             default:
-                System.out.println("Você errou!");
+                Escreve("OpÃ§Ã£o invÃ¡lida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
+        }while(resposta5 != 'D');
 
+        
+        do {
+        	 System.out.println("                                     +-------------------+");
+             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
+             System.out.println("                                     +-------------------+");
+        	
         // Pergunta 6
-        System.out.println("*--Pergunta 4--*");        
-        System.out.println("(octal) 7.000 em decimal?");
-        System.out.println("A - 3.584");
+        Escreve("--Pergunta 6--",  TimeUnit.MILLISECONDS, temp_dialog);  
+        Escreve("\n(octal) 7.000 em decimal ?",  TimeUnit.MILLISECONDS, temp_dialog);
+        System.out.println("\nA - 3.584");
         System.out.println("B - 3.583");
         System.out.println("C - 3.585");
         System.out.println("D - 3.000");
         System.out.println("E - 3.586");
-        String resposta6 = entrada.nextLine();
-
-        resposta6 = resposta6.toUpperCase();
+        
+        System.out.print("Digite a opÃ§Ã£o desejada: ");
+        resposta6 = entrada.next().charAt(0);
+        //resposta6 = resposta6.toUpperCase();
         
         switch(resposta6) {
-            case "A":
-                System.out.println("Você acertou!");
-
+            case 'A':
+                System.out.println("******* VOCÃŠ ACERTOU *******\n");
                 break;
-            case "B":
-            case "C":
-            case "D":
-            case "E":
-                System.out.println("Você errou!");
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+                Escreve("VocÃª errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                break;
             default:
-                System.out.println("Você errou!");
+                Escreve("OpÃ§Ã£o invÃ¡lida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
+        }while(resposta6 != 'A');
 	}
 	
 	static void sobre() throws Exception {
@@ -233,16 +293,16 @@ public class Jogo {
 	static void creditos() throws Exception {
 		Scanner entrada = new Scanner (System.in);
         int opcao_menu, temp_narrativa = 150;
-        System.out.println("SENAC - SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL \nJogo elaborado para o PROJETO INTEGRADOR para a matéria de PI, no curso de ANÁLISE E DESENVOLVIMENTO DE SISTEMAS! \nParticiparam ativamente da criação do jogo rpg textual(desenvolvedores):");
+        System.out.println("SENAC - SERVIÃ‡O NACIONAL DE APRENDIZAGEM COMERCIAL \nJogo elaborado para o PROJETO INTEGRADOR para a matÃ©ria de PI, no curso de ANÃLISE E DESENVOLVIMENTO DE SISTEMAS! \nParticiparam ativamente da criaÃ§Ã£o do jogo rpg textual(desenvolvedores):");
         
-        Escreve("\n\n-> •Guilherme Alves \n-> •Vinícius Santana \n-> •Matheus Thome \n-> •Gustavo Souza \n-> •Gustavo da Silva Oliveira",TimeUnit.MILLISECONDS, temp_narrativa);
+        Escreve("\n\n-> â€¢Guilherme Alves \n-> â€¢VinÃ­cius Santana \n-> â€¢Matheus Thome \n-> â€¢Gustavo Souza \n-> â€¢Gustavo da Silva Oliveira",TimeUnit.MILLISECONDS, temp_narrativa);
         do{
         System.out.println("\n2 - Sair");
         opcao_menu = entrada.nextInt();
         if(opcao_menu == 2){
           menu();
         }else{
-           System.out.println("\nOpção inválida, digite novamente: ");
+           System.out.println("\nOpÃ§Ã£o invÃ¡lida, digite novamente: ");
         }}while(opcao_menu!=2);
      }
 	}
