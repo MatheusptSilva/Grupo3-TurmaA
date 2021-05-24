@@ -85,7 +85,13 @@ public class Jogo {
              System.out.println("                                     +-------------------+");
         	
         // Pergunta 1
-        Escreve("--Pergunta 1--",  TimeUnit.MILLISECONDS, temp_dialog);                                 
+            Escreve("Locutor: Você acordou em uma cama de hospital, em quarto com pouca iluminação, sem janelas. " +
+                            "Você está com uma forte dor de cabeça e sente que está tudo girando ao seu redor. Você se esforça " +
+                    "e consegue então se levantar e se dirigir até a porta. Ao chegar na porta e tentar abri-la, percebe que está fechada " +
+                    "Após retormar um pouco de consciência, ele começa a recuperar os sentidos e a perceber melhor o ambiente. " +
+                    "Ao olhar pelo quarto, ele vê então um corpo totalmente decomposto sentado em uma cadeira e no seu colo o que seria uma carta.",  TimeUnit.MILLISECONDS, temp_dialog);
+            System.out.print("");
+            Escreve("--Pergunta 1--",  TimeUnit.MILLISECONDS, temp_dialog);
         Escreve("\n45 em binário ?",  TimeUnit.MILLISECONDS, temp_dialog);
         System.out.println("\nA - 101101");
         System.out.println("B - 010011");
