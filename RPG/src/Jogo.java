@@ -10,9 +10,10 @@ public class Jogo {
 
 	public static void main(String[] args) throws Exception {
 		Scanner entrada = new Scanner(System.in);
-  
-		Escreve("\n                                                  *-----------* ·SEJA BEM VINDO AO JOGO· *-----------*", TimeUnit.MILLISECONDS, temp_dialog);
-		Escreve("\n                                                                    O ÚLTIMO DE NÓS                   ", TimeUnit.MILLISECONDS, temp_dialog);
+        //System.out.print("                                                  +------------------------------------------------------+");
+		Escreve("\n                                                   *-----------* ·SEJA BEM VINDO AO JOGO· *-----------* "          , TimeUnit.MILLISECONDS, temp_dialog);
+		Escreve("\n                                                                     O ÚLTIMO DE NÓS                    "          , TimeUnit.MILLISECONDS, temp_dialog);
+		//System.out.print("-------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("\n   ");
 		Escreve("\n Você está preparado para encarar o futuro... meu caro jogador?", TimeUnit.MILLISECONDS,
 				temp_dialog);
@@ -76,7 +77,7 @@ public class Jogo {
 		Scanner entrada = new Scanner(System.in);
 
         char resposta1, resposta2, resposta3, resposta4, resposta5, resposta6;
-        int cont = 1;
+        int cont = 0;
         int vidas = 3; 
         
         do {
@@ -100,21 +101,26 @@ public class Jogo {
         switch(resposta1) {
             case 'A':
                 System.out.println("******* VOCÊ ACERTOU *******\n");
-               
-                break;
+               break;
             case 'B':
             case 'C':
             case 'D':
             case 'E':
                 Escreve("Você errou!, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
                 cont = cont + 1;
+                vidas--;
                 break;
             default:
                 Escreve("Opção inválida!\n", TimeUnit.MILLISECONDS, temp_dialog);
          }
         
-        }while(resposta1 != 'A' && cont<3);
+        }while(resposta1 != 'A' && cont<3 && vidas>=0 && vidas<=3);
             
+        if(vidas <= 0)
+        {
+        	Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);       	
+        }
+       
             
         do {
         	 System.out.println("                                     +-------------------+");
@@ -143,12 +149,19 @@ public class Jogo {
             case 'A':
             case 'E':
                 Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                cont = cont + 1;
+                vidas--;
                 break;
             default:
-                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
+                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);          
         }
-        }while(resposta2 != 'D');
+        }while(resposta2 != 'D' && cont<3 && vidas>=0 && vidas<=3);
         
+        if(vidas <= 0)
+        {
+        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
+        	
+        }
         
         do {
         	 System.out.println("                                     +-------------------+");
@@ -177,12 +190,19 @@ public class Jogo {
             case 'D':
             case 'E':
                 Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                cont = cont + 1;
+                vidas--;
                 break;
             default:
                 Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-        }while(resposta3 != 'C');
+        }while(resposta3 != 'C' && cont<3 && vidas>=0 && vidas<=3);
       
+        if(vidas <= 0)
+        {
+        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
+        	
+        }
         
         do {
         	 System.out.println("                                     +-------------------+");
@@ -211,12 +231,19 @@ public class Jogo {
             case 'D':
             case 'E':
                 Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                cont = cont + 1;
+                vidas--;
                 break;
             default:
                 Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-        }while(resposta4 != 'A');
+        }while(resposta4 != 'A' && cont<3 && vidas>=0 && vidas<=3);
        
+        if(vidas <= 0)
+        {
+        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
+        	
+        }
         
         do {
         	 System.out.println("                                     +-------------------+");
@@ -245,11 +272,19 @@ public class Jogo {
             case 'A':
             case 'E':
                 Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                cont = cont + 1;
+                vidas--;
                 break;
             default:
                 Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-        }while(resposta5 != 'D');
+        }while(resposta5 != 'D' && cont<3 && vidas>=0 && vidas<=3);
+        
+        if(vidas <= 0)
+        {
+        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
+        	
+        }
 
         
         do {
@@ -279,12 +314,22 @@ public class Jogo {
             case 'D':
             case 'E':
                 Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
+                cont = cont + 1;
+                vidas--;
                 break;
             default:
                 Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
         }
-        }while(resposta6 != 'A');
+        }while(resposta6 != 'A' && cont<3 && vidas>=0 && vidas<=3);
+        
+        if(vidas <= 0)
+        {
+        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
+        	
+        }
 	}
+	
+	
 	
 	static void sobre() throws Exception {
 
