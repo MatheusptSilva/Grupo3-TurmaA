@@ -1,11 +1,11 @@
-import java.util.Scanner;
+import java.awt.*;
+import java.util.*;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.Collections;
-import java.util.ArrayList;
 
 public class Jogo {
 
-	static int temp_dialog = 100, temp_narrativa = 100, temp_transicao = 100;
+	static int temp_dialog = 0, temp_narrativa = 0, temp_transicao = 0;
 	static int _acerto = 0;
 
 	public static void main(String[] args) throws Exception {
@@ -53,13 +53,26 @@ public class Jogo {
 			System.out.println("\n");
 			opcao_menu = entrada.nextInt();
 			if (opcao_menu == 1) {
-				jogar();
+				boolean ganhar = jogar();
+				if(ganhar){
+				    Escreve("\n Párabens você ganhou o jogo",  TimeUnit.MILLISECONDS, temp_dialog);
+                }
+				else{
+                    Escreve("\n É meu chapa, não foi dessa vez que você ganhou!\n\n\n\n Deseja tentar de novo? S/N",  TimeUnit.MILLISECONDS, temp_dialog);
+                    String jogar = entrada.next();
+                    if(jogar == "S"){
+                        menu();
+                    }
+                    else{
+                        Escreve("\n Então até uma próxima meu jovem!!!!",  TimeUnit.MILLISECONDS, temp_dialog);
+                    }
+                }
 			} else if (opcao_menu == 2) {
 				sobre();
 				Escreve("O jogo se passa no ano de 2035 baseado no filme eu robô, onde o nosso personagem Will Smith, após acordar de "
 						+ " um coma induzido se depera com o dominio das maquinas sobre a humanidade."
 						+ "\nNo jogo as perguntas são sobre a materia de conceitos da computação e todas de alternativas, por tanto leia atentamente "
-						+ "as perguntas e digite a resposta que desejar, porém tome cuidade, pois você terá chances limitadas.", TimeUnit.MILLISECONDS, temp_dialog);
+						+ "as perguntas e digite a resposta que desejar, porém tome cuidade, pois você terá chances limitadas.\n", TimeUnit.MILLISECONDS, temp_dialog);
 			} else if (opcao_menu == 3) {
 				creditos();
 			} else if (opcao_menu == 4) {
@@ -73,14 +86,25 @@ public class Jogo {
 	}
 	
 
-	static void jogar() throws Exception {
+	static boolean jogar() throws Exception {
 		Scanner entrada = new Scanner(System.in);
+
+        List respostas = new ArrayList();
+        respostas.add("101101");
+        respostas.add("010011");
+        respostas.add("111111");
+        respostas.add("000011");
+        respostas.add("110011");
+
+        String pergunta = "45 em binário";
+        String certa = "101101";
 
         char resposta1, resposta2, resposta3, resposta4, resposta5, resposta6;
         int cont = 0;
-        int vidas = 3; 
+        int vidas = 3;
+        boolean passou = false;
         
-        do {
+
         	 System.out.println("                                     +-------------------+");
              System.out.println("                                     |     VIDAS: " +vidas+ "      |");
              System.out.println("                                     +-------------------+");
@@ -90,43 +114,23 @@ public class Jogo {
                             "Você está com uma forte dor de cabeça e sente que está tudo girando ao seu redor. Você se esforça " +
                     "e consegue então se levantar e se dirigir até a porta. Ao chegar na porta e tentar abri-la, percebe que está fechada " +
                     "Após retormar um pouco de consciência, ele começa a recuperar os sentidos e a perceber melhor o ambiente. " +
-                    "Ao olhar pelo quarto, ele vê então um corpo totalmente decomposto sentado em uma cadeira e no seu colo o que seria uma carta.",  TimeUnit.MILLISECONDS, temp_dialog);
-            System.out.print("");
-            Escreve("--Pergunta 1--",  TimeUnit.MILLISECONDS, temp_dialog);
-        Escreve("\n45 em binário ?",  TimeUnit.MILLISECONDS, temp_dialog);
-        System.out.println("\nA - 101101");
-        System.out.println("B - 010011");
-        System.out.println("C - 111111");
-        System.out.println("D - 000011");
-        System.out.println("E - 110011");
-        
-        System.out.print("Digite a opção desejada: ");
-        resposta1 = entrada.next().charAt(0);
-        //resposta1 = resposta1.toUpperCase();
-       
-        switch(resposta1) {
-            case 'A':
-                System.out.println("******* VOCÊ ACERTOU *******\n");
-               break;
-            case 'B':
-            case 'C':
-            case 'D':
-            case 'E':
-                Escreve("Você errou!, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
-                cont = cont + 1;
+                    "Ao olhar pelo quarto, ele vê então um corpo totalmente decomposto sentado em uma cadeira e no seu colo o que seria uma carta.\n",  TimeUnit.MILLISECONDS, temp_dialog);
+        do {
+            Boolean acertou = perguntas(respostas, pergunta, certa);
+            if(acertou == false){
                 vidas--;
-                break;
-            default:
-                Escreve("Opção inválida!\n", TimeUnit.MILLISECONDS, temp_dialog);
-         }
-        
-        }while(resposta1 != 'A' && cont<3 && vidas>=0 && vidas<=3);
+            }
+            else{
+                passou = true;
+            }
+        }while(passou != true && vidas != 0);
             
         if(vidas <= 0)
         {
         	Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);       	
+            return false;
         }
-       
+
             
         do {
         	 System.out.println("                                     +-------------------+");
@@ -333,6 +337,8 @@ public class Jogo {
         	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
         	
         }
+
+        return false;
 	}
 	
 	
@@ -355,5 +361,78 @@ public class Jogo {
         }else{
            System.out.println("\nOpção inválida, digite novamente: ");
         }}while(opcao_menu!=2);
-     }
 	}
+
+
+	static boolean perguntas(List valores, String pergunta, String certa) throws Exception {
+        Scanner entrada = new Scanner(System.in);
+        boolean acertou = false;
+
+            Collections.shuffle(valores);
+            System.out.println(pergunta);
+            System.out.println("a) " + valores.get(0));
+            System.out.println("b) " + valores.get(1));
+            System.out.println("c) " + valores.get(2));
+            System.out.println("d) " + valores.get(3));
+            System.out.println("e) " + valores.get(4));
+            System.out.print("Escolha uma alternativa: ");
+            String resposta = entrada.next();
+            switch (resposta) {
+                case "a":
+                case "A":
+                    if (valores.get(0).equals(certa)) {
+                        System.out.println("Resposta correta!");
+                        acertou = true;
+                    } else {
+                        System.out.println("Resposta incorreta!");
+                    }
+                    break;
+                case "b":
+                case "B":
+                    if (valores.get(1).equals(certa)) {
+                        System.out.println("Resposta correta!");
+                        acertou = true;
+                    } else {
+                        System.out.println("Resposta incorreta!");
+
+                    }
+                    break;
+                case "c":
+                case "C":
+                    if (valores.get(2).equals(certa)) {
+                        System.out.println("Resposta correta!");
+                        acertou = true;
+                    } else {
+                        System.out.println("Resposta incorreta!");
+
+                    }
+                    break;
+                case "d":
+                case "D":
+                    if (valores.get(3).equals(certa)) {
+                        System.out.println("Resposta correta!");
+                        acertou = true;
+                    } else {
+                        System.out.println("Resposta incorreta!");
+
+                    }
+                    break;
+                case "e":
+                case "E":
+                    if (valores.get(4).equals(certa)) {
+                        System.out.println("Resposta correta!");
+                        acertou = true;
+                    } else {
+                        System.out.println("Resposta incorreta!");
+                    }
+                    break;
+                default:
+                    System.out.println("Escolha inválida!");
+            }
+
+        return acertou;
+    }
+
+}
+
+
