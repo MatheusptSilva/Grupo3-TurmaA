@@ -88,35 +88,47 @@ public class Jogo {
 
 	static boolean jogar() throws Exception {
 		Scanner entrada = new Scanner(System.in);
-
-        List respostas = new ArrayList();
-        respostas.add("101101");
-        respostas.add("010011");
-        respostas.add("111111");
-        respostas.add("000011");
-        respostas.add("110011");
-
-        String pergunta = "45 em binário";
-        String certa = "101101";
-
-        char resposta1, resposta2, resposta3, resposta4, resposta5, resposta6;
-        int cont = 0;
         int vidas = 3;
         boolean passou = false;
-        
 
-        	 System.out.println("                                     +-------------------+");
-             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
-             System.out.println("                                     +-------------------+");
-        	
+        //Atribuindo as perguntas, alternativas e o valor certo de resposta.
+        String pergunta1 = "\n45 em binário";
+        List alternativas1 = Arrays.asList("101101", "010011", "111111", "000011", "110011");
+        String certa1 = "101101";
+
+        String pergunta2 = "\n10101 em Decimal ? ";
+        List alternativas2 = Arrays.asList("24", "99", "25", "21", "15");
+        String certa2 = "21";
+
+        String pergunta3 = "\n58 em binário ?";
+        List alternativas3 = Arrays.asList("011111", "111011", "111010", "111001", "100000");
+        String certa3 = "111010";
+
+        String pergunta4 = "\nAF5 em decimal ?";
+        List alternativas4 = Arrays.asList("5.365", "5.000", "300", "6.000", "5.360");
+        String certa4 = "5.365";
+
+        String pergunta5 = "\nF17 em octal ?";
+        List alternativas5 = Arrays.asList("7.00", "7.424", "7.017", "7.427", "7.217");
+        String certa5 = "7.427";
+
+        String pergunta6 = "\n(octal) 7.000 em decimal ?";
+        List alternativas6 = Arrays.asList("3.584", "3.583", "3.585", "3.000", "3.586");
+        String certa6 = "3.584";
+
+        //mostra ao jogador a quantidade de vidas que ele ainda tem.
+        mostrarVidas(vidas);
+
         // Pergunta 1
-            Escreve("Locutor: Você acordou em uma cama de hospital, em quarto com pouca iluminação, sem janelas. " +
-                            "Você está com uma forte dor de cabeça e sente que está tudo girando ao seu redor. Você se esforça " +
-                    "e consegue então se levantar e se dirigir até a porta. Ao chegar na porta e tentar abri-la, percebe que está fechada " +
-                    "Após retormar um pouco de consciência, ele começa a recuperar os sentidos e a perceber melhor o ambiente. " +
-                    "Ao olhar pelo quarto, ele vê então um corpo totalmente decomposto sentado em uma cadeira e no seu colo o que seria uma carta.\n",  TimeUnit.MILLISECONDS, temp_dialog);
+            Escreve("Locutor: Você acordou em uma cama de hospital, em quarto com pouca iluminação, sem janelas. \n" +
+                            "Você está com uma forte dor de cabeça e sente que está tudo girando ao seu redor. Você se esforça \n" +
+                    "e consegue então se levantar e se dirigir até a porta. Ao chegar na porta e tentar abri-la, percebe que está fechada \n" +
+                    "Após retormar um pouco de consciência, ele começa a recuperar os sentidos e a perceber melhor o ambiente. \n" +
+                    "Ao olhar pelo quarto, ele vê então um corpo totalmente decomposto sentado em uma cadeira e no seu colo o que \n" +
+                    "seria uma carta.\n\n",  TimeUnit.MILLISECONDS, temp_dialog);
         do {
-            Boolean acertou = perguntas(respostas, pergunta, certa);
+            Escreve("--Pergunta 1--",  TimeUnit.MILLISECONDS, temp_dialog);
+            Boolean acertou = perguntas(alternativas1, pergunta1, certa1);
             if(acertou == false){
                 vidas--;
             }
@@ -124,219 +136,109 @@ public class Jogo {
                 passou = true;
             }
         }while(passou != true && vidas != 0);
-            
+            passou = false;
         if(vidas <= 0)
         {
         	Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);       	
             return false;
         }
 
-            
+        mostrarVidas(vidas);
+
         do {
-        	 System.out.println("                                     +-------------------+");
-             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
-             System.out.println("                                     +-------------------+");
-        	
-        // Pergunta 2
-        Escreve("--Pergunta 2--",  TimeUnit.MILLISECONDS, temp_dialog);       
-        Escreve("\n10101 em Decimal ? ",  TimeUnit.MILLISECONDS, temp_dialog);
-        System.out.println("\nA - 24");
-        System.out.println("B - 99");
-        System.out.println("C - 25");
-        System.out.println("D - 21");
-        System.out.println("E - 15");
-        
-        System.out.print("Digite a opção desejada: ");
-        resposta2 = entrada.next().charAt(0);
-       // resposta2 = resposta2.toUpperCase();
-        
-        switch(resposta2) {
-            case 'D':
-                System.out.println("******* VOCÊ ACERTOU *******\n");
-                break;
-            case 'B':
-            case 'C':
-            case 'A':
-            case 'E':
-                Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
-                cont = cont + 1;
+            Escreve("--Pergunta 2--",  TimeUnit.MILLISECONDS, temp_dialog);
+            Boolean acertou = perguntas(alternativas2, pergunta2, certa2);
+            if(acertou == false){
                 vidas--;
-                break;
-            default:
-                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);          
-        }
-        }while(resposta2 != 'D' && cont<3 && vidas>=0 && vidas<=3);
-        
+            }
+            else{
+                passou = true;
+            }
+        }while(passou != true && vidas != 0);
+
         if(vidas <= 0)
         {
-        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
-        	
+            Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);
+            return false;
         }
-        
+        mostrarVidas(vidas);
+        passou = false;
         do {
-        	 System.out.println("                                     +-------------------+");
-             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
-             System.out.println("                                     +-------------------+");
-        	
-        // Pergunta 3        
-        Escreve("--Pergunta 3--",  TimeUnit.MILLISECONDS, temp_dialog);        
-        Escreve("\n58 em binário ?",  TimeUnit.MILLISECONDS, temp_dialog);
-        System.out.println("\nA - 011111");
-        System.out.println("B - 111011");
-        System.out.println("C - 111010");
-        System.out.println("D - 111001");
-        System.out.println("E - 100000");
-        
-        System.out.print("Digite a opção desejada: ");
-        resposta3 = entrada.next().charAt(0);
-        //resposta3 = resposta3.toUpperCase();
-        
-        switch(resposta3) {
-            case 'C':
-                System.out.println("******* VOCÊ ACERTOU *******\n");
-                break;
-            case 'B':
-            case 'A':
-            case 'D':
-            case 'E':
-                Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
-                cont = cont + 1;
+            Escreve("--Pergunta 3--",  TimeUnit.MILLISECONDS, temp_dialog);
+            Boolean acertou = perguntas(alternativas3, pergunta3, certa3);
+            if(acertou == false){
                 vidas--;
-                break;
-            default:
-                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
-        }
-        }while(resposta3 != 'C' && cont<3 && vidas>=0 && vidas<=3);
-      
+            }
+            else{
+                passou = true;
+            }
+        }while(passou != true && vidas != 0);
+
         if(vidas <= 0)
         {
-        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
-        	
-        }
-        
-        do {
-        	 System.out.println("                                     +-------------------+");
-             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
-             System.out.println("                                     +-------------------+");
-        	
-        // Pergunta 4
-        Escreve("--Pergunta 4--",  TimeUnit.MILLISECONDS, temp_dialog);    
-        Escreve("\nAF5 em decimal ?",  TimeUnit.MILLISECONDS, temp_dialog);
-        System.out.println("\nA - 5.365");
-        System.out.println("B - 5.000");
-        System.out.println("C - 300");
-        System.out.println("D - 6.000");
-        System.out.println("E - 5.360");
-        
-        System.out.print("Digite a opção desejada: ");
-        resposta4 = entrada.next().charAt(0);
-        //resposta4 = resposta4.toUpperCase();
-        
-        switch(resposta4) {
-            case 'A':
-                System.out.println("******* VOCÊ ACERTOU *******\n");
-                break;
-            case 'B':
-            case 'C':
-            case 'D':
-            case 'E':
-                Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
-                cont = cont + 1;
-                vidas--;
-                break;
-            default:
-                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
-        }
-        }while(resposta4 != 'A' && cont<3 && vidas>=0 && vidas<=3);
-       
-        if(vidas <= 0)
-        {
-        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
-        	
-        }
-        
-        do {
-        	 System.out.println("                                     +-------------------+");
-             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
-             System.out.println("                                     +-------------------+");
-        	
-        // Pergunta 5	
-        Escreve("--Pergunta 5--",  TimeUnit.MILLISECONDS, temp_dialog);       
-        Escreve("\nF17 em octal ?",  TimeUnit.MILLISECONDS, temp_dialog);
-        System.out.println("\nA - 7.00");
-        System.out.println("B - 7.424");
-        System.out.println("C - 7.017");
-        System.out.println("D - 7.427");
-        System.out.println("E - 7.217");
-        
-        System.out.print("Digite a opção desejada: ");
-        resposta5 = entrada.next().charAt(0);
-        //resposta5 = resposta5.toUpperCase();
-        
-        switch(resposta5) {
-            case 'D':
-                System.out.println("******* VOCÊ ACERTOU *******\n");
-                break;
-            case 'B':
-            case 'C':
-            case 'A':
-            case 'E':
-                Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
-                cont = cont + 1;
-                vidas--;
-                break;
-            default:
-                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
-        }
-        }while(resposta5 != 'D' && cont<3 && vidas>=0 && vidas<=3);
-        
-        if(vidas <= 0)
-        {
-        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
-        	
+            Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);
+            return false;
         }
 
-        
+        mostrarVidas(vidas);
+        passou = false;
         do {
-        	 System.out.println("                                     +-------------------+");
-             System.out.println("                                     |     VIDAS: " +vidas+ "      |");
-             System.out.println("                                     +-------------------+");
-        	
-        // Pergunta 6
-        Escreve("--Pergunta 6--",  TimeUnit.MILLISECONDS, temp_dialog);  
-        Escreve("\n(octal) 7.000 em decimal ?",  TimeUnit.MILLISECONDS, temp_dialog);
-        System.out.println("\nA - 3.584");
-        System.out.println("B - 3.583");
-        System.out.println("C - 3.585");
-        System.out.println("D - 3.000");
-        System.out.println("E - 3.586");
-        
-        System.out.print("Digite a opção desejada: ");
-        resposta6 = entrada.next().charAt(0);
-        //resposta6 = resposta6.toUpperCase();
-        
-        switch(resposta6) {
-            case 'A':
-                System.out.println("******* VOCÊ ACERTOU *******\n");
-                break;
-            case 'B':
-            case 'C':
-            case 'D':
-            case 'E':
-                Escreve("Você errou, tente novamente\n", TimeUnit.MILLISECONDS, temp_dialog);
-                cont = cont + 1;
+            Escreve("--Pergunta 4--",  TimeUnit.MILLISECONDS, temp_dialog);
+            Boolean acertou = perguntas(alternativas4, pergunta4, certa4);
+            if(acertou == false){
                 vidas--;
-                break;
-            default:
-                Escreve("Opção inválida\n", TimeUnit.MILLISECONDS, temp_dialog);
-        }
-        }while(resposta6 != 'A' && cont<3 && vidas>=0 && vidas<=3);
-        
+            }
+            else{
+                passou = true;
+            }
+        }while(passou != true && vidas != 0);
+
         if(vidas <= 0)
         {
-        	Escreve("Game Over", TimeUnit.MILLISECONDS, temp_dialog);
-        	
+            Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);
+            return false;
         }
+
+        mostrarVidas(vidas);
+        passou = false;
+        do {
+            Escreve("--Pergunta 5--",  TimeUnit.MILLISECONDS, temp_dialog);
+            Boolean acertou = perguntas(alternativas5, pergunta5, certa5);
+            if(acertou == false){
+                vidas--;
+            }
+            else{
+                passou = true;
+            }
+        }while(passou != true && vidas != 0);
+
+        if(vidas <= 0)
+        {
+            Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);
+            return false;
+        }
+
+        mostrarVidas(vidas);
+        passou = false;
+        do {
+            Escreve("--Pergunta 6--",  TimeUnit.MILLISECONDS, temp_dialog);
+            Boolean acertou = perguntas(alternativas6, pergunta6, certa6);
+            if(acertou == false){
+                vidas--;
+            }
+            else{
+                passou = true;
+            }
+        }while(passou != true && vidas != 0);
+
+        if(vidas <= 0)
+        {
+            Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);
+            return false;
+        }
+
+        mostrarVidas(vidas);
+
 
         return false;
 	}
@@ -363,6 +265,12 @@ public class Jogo {
         }}while(opcao_menu!=2);
 	}
 
+	static void mostrarVidas(int vidasRestantes){
+        System.out.println("                                     +-------------------+");
+        System.out.println("                                     |     VIDAS: " +vidasRestantes+ "      |");
+        System.out.println("                                     +-------------------+");
+    }
+
 
 	static boolean perguntas(List valores, String pergunta, String certa) throws Exception {
         Scanner entrada = new Scanner(System.in);
@@ -384,7 +292,7 @@ public class Jogo {
                         System.out.println("Resposta correta!");
                         acertou = true;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("\nResposta incorreta!");
                     }
                     break;
                 case "b":
@@ -393,7 +301,7 @@ public class Jogo {
                         System.out.println("Resposta correta!");
                         acertou = true;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("\nResposta incorreta!");
 
                     }
                     break;
@@ -403,7 +311,7 @@ public class Jogo {
                         System.out.println("Resposta correta!");
                         acertou = true;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("\nResposta incorreta!");
 
                     }
                     break;
@@ -413,7 +321,7 @@ public class Jogo {
                         System.out.println("Resposta correta!");
                         acertou = true;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("\nResposta incorreta!");
 
                     }
                     break;
@@ -423,7 +331,7 @@ public class Jogo {
                         System.out.println("Resposta correta!");
                         acertou = true;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("\nResposta incorreta!");
                     }
                     break;
                 default:
