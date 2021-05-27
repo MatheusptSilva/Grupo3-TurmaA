@@ -119,6 +119,10 @@ public class Jogo {
 		String pergunta6 = "\n7.000 octal em decimal ?";
 		List alternativas6 = Arrays.asList("3.584", "3.583", "3.585", "3.000", "3.586");
 		String certa6 = "3.584";
+		
+		String pergunta7 = "\nA seguinte expressão representa qual porta lógica: S = A + B";
+		List alternativas7 = Arrays.asList("Representesta soma", "Representa a condição or", "Representa a condição or", "Representa a condição and", "Representa a condição nor", "Representa a condição nand");
+		String certa7 = "Representa a condição or";
 
 		// mostra ao jogador a quantidade de vidas que ele ainda tem.
 		mostrarVidas(vidas);
@@ -268,6 +272,29 @@ public class Jogo {
 		do {
 			Escreve("--DISABLE MACHINE--", TimeUnit.MILLISECONDS, temp_dialog);
 			Boolean acertou = perguntas(alternativas6, pergunta6, certa6);
+			if (acertou == false) {
+				vidas--;
+				mostrarVidas(vidas);
+			} else {
+				passou = true;
+			}
+		} while (passou != true && vidas != 0);
+
+		if (vidas <= 0) {
+			Escreve("                              GAME OVER ", TimeUnit.MILLISECONDS, temp_dialog);
+			return false;
+		}
+
+		mostrarVidas(vidas);
+		
+		Escreve("Após clicar no software e fazer tudo o que podia, abre-se uma porta, nela, há diversos robôs\n"
+				+ "Nela há mais um desafio\n"
+				+ "Os robôs afirmam que caso ele acerte a próxima pergunta, a Matrix toda será desabilitada, caso contrário, o robô poderá contraatacar.",
+				TimeUnit.MILLISECONDS, temp_dialog);
+
+		do {
+			Escreve("--DISABLE MACHINE--", TimeUnit.MILLISECONDS, temp_dialog);
+			Boolean acertou = perguntas(alternativas7, pergunta7, certa7);
 			if (acertou == false) {
 				vidas--;
 				mostrarVidas(vidas);
