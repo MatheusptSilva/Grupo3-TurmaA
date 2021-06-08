@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Jogo {
 
-	static int temp_dialog = 0, temp_narrativa = 0, temp_transicao = 0;
+	static int temp_dialog = 50, temp_narrativa = 50, temp_transicao = 50;
 	static int _acerto = 0;
 
 	public static void main(String[] args) throws Exception {
@@ -71,9 +71,11 @@ public class Jogo {
 				}
 			} else if (opcao_menu == 2) {
 				sobre();
-				Escreve("O jogo se passa no ano de 2035 baseado no filme eu robô, onde o nosso personagem Will Smith, após acordar de "
+				Escreve("O jogo se passa no ano de 2035 baseado no filme eu robô, onde " +
+								"o nosso personagem Will Smith, após acordar de "
 						+ " um coma induzido se depera com o dominio das maquinas sobre a humanidade."
-						+ "\nNo jogo as perguntas são sobre a materia de conceitos da computação e todas de alternativas, por tanto leia atentamente "
+						+ "\nNo jogo as perguntas são sobre a materia de conceitos da computação e " +
+								"todas de alternativas, por tanto leia atentamente "
 						+ "as perguntas e digite a resposta que desejar, porém tome cuidade, pois você terá chances limitadas.\n",
 						TimeUnit.MILLISECONDS, temp_dialog);
 			} else if (opcao_menu == 3) {
@@ -160,12 +162,20 @@ public class Jogo {
 		mostrarVidas(vidas);
 
 		// Pergunta 2
-		Escreve("Após abrir a porta, Will se depara com um mundo todo automatizado. Uma grande sala repleta de robos monitorano telas. \n"
-				+ "Com um grande temor, Will sente-se paralisado e resolve pegar a carta que encontrou anteriormente para lê-la novamente. \n "
-				+ "Em certa parte da carta diz o seguinte: '...Se elas te pegarem, te levarão para uma grande sala lá para onde todos nós \n "
-				+ "fomos levados se você estiver lendo, lembre-se sempre que és o último de nós. O futuro da humanidade depende de você...'. \n"
-				+ "Enquanto estava lendo na frente daquela porta aberta, Will ouve um grande barulho de alarme e nota de longe todos os robôs \n"
-				+ "correndo. Desesperado, ele corre para uma sala à frente e para abri-la precisa novamente acertar um desafio lançado pelo painel: \n\n",
+		Escreve("Após abrir a porta, Will se depara com um cenário arrasado, praticamente um cenário apocalíptico. quase como se vê " +
+						"nos filmes, ao fundo ele começa a escutar sons de serragens, de soldas. Ainda atordoado de passar tanto tempo deitado e " +
+						"internado e dar de cara com um homem morto. Will, diante de tudo isso, resolve se esconder por um tempo, para recobrar as " +
+						"suas forças. Ao recobrar a consciência e ver melhor o mundo ao seu redor, Will decide não se precipitar e continuar escondido. " +
+						"Resolve então ver se na carta tinha mais alguma informação, ao olhar no verso da carta, ele encontra mais um trecho escrito:\n" +
+						"\n" +
+						"“Will, NÃO TENHO MUITO TEMPO, Mas todas as respostas que você precisa, você vai encontrar em seu antigo laboratório. Quando " +
+						"chegar lá, procure o local onde ficava o terceiro extintor perto da porta principal, lá você vai encontrar uma dica para a " +
+						"nova senha do laboratório.”\n" +
+						"Ele então, vai se espreitando, andando pela escuridão. Ao sair do ambiente onde ele estava, ele percebe que estava no prédio de " +
+						"seu laboratório. Porém estava no último andar de um prédio de 10 andares. Seu laboratório era no subsolo. Ele, como conhecia o " +
+						"espaço, foi em direção a um elevador que apenas ele conhecia, que era guardado por uma senha que ele não lembrava exatamente, " +
+						"porém como ele gostava de resolver problemas, ele deixou uma pergunta na parte de cima do teclado para acessar o elevador:\n\n"
+																	,
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
@@ -186,14 +196,15 @@ public class Jogo {
 		mostrarVidas(vidas);
 		passou = false;
 
-		Escreve("Will conseguiu abrir a porta acertando o desafio do painel. Ao entrar, ele se depara com um grande computador e um corpo todo \n"
-				+ "queimado em uma cadeira de frente à tela. Em um ato de adrenalina, Will retira o corpo da cadeira e senta-se. A fim de encontrar \n"
-				+ "respostas para tudo que estava acontecendo ao seu redor ele tenta acessar o computador.\n"
-				+ "Novamente se depara com um desafio proposto, para acessar as informações daquela máquina: \n\n",
+		Escreve("O elevador então chega em seu andar. Will sobe no elevador. Porém, o seu laboratório era algo ao qual ele " +
+						"não queria que as pessoas tivessem acesso ou até mesmo que soubessem da existência dele. Por isso ele colocou no " +
+						"painel do elevador, um local escondido. Neste local havia um novo painel, para que ele pudesse colocar um código ao " +
+						"qual liberasse o acesso ao andar do seu laboratório.\n" +
+						"Neste painel, tinha mais uma dica sobre qual era o código correto para chegar ao andar que ele queria. \n\n",
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
-			Escreve("--:ACESSO A GRANDE MÃE:--", TimeUnit.MILLISECONDS, temp_dialog);
+			Escreve("--:Pergunta 3:--", TimeUnit.MILLISECONDS, temp_dialog);
 			Boolean acertou = perguntas(alternativas3, pergunta3, certa3);
 			if (acertou == false) {
 				vidas--;
@@ -211,14 +222,15 @@ public class Jogo {
 		mostrarVidas(vidas);
 		passou = false;
 
-		Escreve("E lá estavam, todos acessos aos robos... Will se desespera, levanta da cadeira e leva as mãos à cabeça começando a chorar de medo! \n"
-				+ "Estava ali a grande oportunidade de dar um novo sentido a humanidade, a começar por ele. Com suas mãos na cabeça, Will fica se \n"
-				+ "recordando daquele corpo que encontrou, e se desespera mais ainda, pois àquele também pode ser seu fim. Se aproximou do corpo,  \n"
-				+ "e encontrou mais uma carta, que começava assim: 'COMO DERROTAR A MATRIX'. Dessa forma, com as mãos trêmulas, Will começou a ler  \n"
-				+ "e viu que tudo isso deveria ser feito pela GRANDE MÃE. A primeira coisa a se fazer era bloquear a porta para que os robos perdessem \n"
-				+ "o sinal dele, pois poderiam estar em sua caça. Novamente chegando a porta, agora do lado de dentro, ele vê a opção de BLOCK DOOR e \n"
-				+ "clica nela. Uma mensagem sobressai no painel dizendo: 'Acerte dois desafios, um por vez, e a porta estará bloqueada. Somente você poderá abri-la.' \n\n"
-				+ "Will prosseguiu, e logo o primeiro desafio estava a sua frente: \n\n", TimeUnit.MILLISECONDS,
+		Escreve("Will chega no andar de seu laboratório, quando a porta do elevador abre, ele se depara com alguns corpos jogados " +
+						"ao chão, todos já em forma de esqueletos. Como se já tivesse passado muito tempo desde a morte deles. Ao ver essa cena, " +
+						"Will corre até o seu laboratório, para ver se ele havia sido invadido. No entanto, a porta se mantinha intacta, o que foi " +
+						"um alivio. Will então tira a carta de seu bolso e lê o seu conteúdo novamente, para descobrir onde estava a nova senha de " +
+						"acesso ao laboratório. \n" +
+						"“Quando chegar lá, procure o local onde ficava o terceiro extintor perto da porta principal, lá você vai encontrar uma " +
+						"dica para a nova senha do laboratório.”\n" +
+						"Ele foi até o local indicado e pegou um outro pedaço de papel, onde tinha mais um pequeno desafio. Ele pegou o papel e " +
+						"foi até a porta, onde ele encontrou um painel manchado de sangue seco e com muitos corpos ao redor. Ele então lê o desafio:\n", TimeUnit.MILLISECONDS,
 				temp_dialog);
 
 		do {
@@ -263,10 +275,14 @@ public class Jogo {
 		passou = false;
 
 		Escreve("PORTA BLOQUEADA COM SUCESSO! \n\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Escreve("Will volta-se para o computador, senta e começa a buscar informações na qual ele encontrara na carta deixada pelo morto eletrocutado\n"
-				+ "Em um dos passos estava descrito que ele devia abrir um SOFTWARE chamado 'DISABLE MACHINES' Ao clicar, mais um desafio foi proposto \n"
-				+ "Will notou que todos os acessos de administrador, de tudo ao seu redor, tratavasse de desafios computacionais. Em um leve devaneio \n"
-				+ "lembrou-se das sua época de faculdade... Mas de imediato recordou sua grande missão de frente aquele computador, e começou a resolver: \n\n",
+		Escreve("Will volta-se para o computador, senta e começa a buscar informações " +
+						"na qual ele encontrara na carta deixada pelo morto eletrocutado"
+				+ "Em um dos passos estava descrito que ele devia abrir um SOFTWARE chamado " +
+						"'DISABLE MACHINES' Ao clicar, mais um desafio foi proposto \n"
+				+ "Will notou que todos os acessos de administrador, de tudo ao seu redor, " +
+						"tratavasse de desafios computacionais. Em um leve devaneio \n"
+				+ "lembrou-se das sua época de faculdade... Mas de imediato recordou sua grande " +
+						"missão de frente aquele computador, e começou a resolver: \n\n",
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
@@ -288,8 +304,9 @@ public class Jogo {
 		mostrarVidas(vidas);
 		
 		Escreve("Após clicar no software e fazer tudo o que podia, abre-se uma porta, nela, há diversos robôs\n"
-				+ "Nela há mais um desafio\n"
-				+ "Os robôs afirmam que caso ele acerte a próxima pergunta, a Matrix toda será desabilitada, caso contrário, o robô poderá contraatacar.",
+						+ "Nela há mais um desafio\n"
+						+ "Os robôs afirmam que caso ele acerte a próxima pergunta, a Matrix toda será desabilitada, caso " +
+						"contrário, o robô poderá contraatacar.",
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
@@ -310,11 +327,19 @@ public class Jogo {
 
 		mostrarVidas(vidas);
 
-		return false;
+		return true;
 	}
 
 	static void sobre() throws Exception {
-
+		System.out.println("O jogo se passa no futuro, em uma realidade onde o mundo é dominado por uma inteligencia" +
+				"artificial. Essa inteligencia artificial, após entender e aprender com os humanos, ela passa então " +
+				"a entender e a pensar sozinha, de modo que ela chega a uma ideia de que os humanos são uma ameaça " +
+				"para eles mesmos e também para o planeta Terra. Por esse motivo a inteligencia decide que a raça humana" +
+				" era um mal que deveria ser combatido. De forma que ela passa a entrar dentro do software de fábricas de robos " +
+				"e passa a colocar a sua consciencia dentro deles. Depois que ela consegue criar o seu exercito de robos " +
+				"sem que ninguém percebesse, ela ataca os humanos e os subjulgam. Os poucos humanos que sobrevireram " +
+				"se sujeitaram a viver escondidos em cavernas e em esconderijos que não tenham eletronicos que possam " +
+				"ser conectados na rede.");
 	}
 
 	static void creditos() throws Exception {
