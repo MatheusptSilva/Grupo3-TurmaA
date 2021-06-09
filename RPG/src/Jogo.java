@@ -114,9 +114,12 @@ public class Jogo {
 		List alternativas4 = Arrays.asList("5.365", "5.000", "300", "6.000", "5.360");
 		String certa4 = "5.365";
 
-		String pergunta5 = "\nF17 em octal ?";
-		List alternativas5 = Arrays.asList("7.00", "7.424", "7.017", "7.427", "7.217");
-		String certa5 = "7.427";
+		String pergunta5 = "\nDuas tartarugas estavam juntas e começaram a caminhar em linha reta em direção a um lago distante. A primeira tartaruga " +
+				"percorreu 30 metros por dia e demorou 16 dias para chegar ao lago. A segunda tartaruga só conseguiu percorrer 20 metros por dia e, " +
+				"portanto, chegou ao lago alguns dias depois da primeira. Quando a primeira tartaruga chegou ao lago, o número de dias que ela teve que " +
+				"esperar para a segunda tartaruga chegar foi:";
+		List alternativas5 = Arrays.asList("8", "9", "10", "12", "15");
+		String certa5 = "8";
 
 		String pergunta6 = "\n7.000 octal em decimal ?";
 		List alternativas6 = Arrays.asList("3.584", "3.583", "3.585", "3.000", "3.586");
@@ -252,7 +255,8 @@ public class Jogo {
 		mostrarVidas(vidas);
 		passou = false;
 
-		Escreve("ACERTE O PRÓXIMO DESAFIO E A PORTA SERÁ BLOQUEADA E JAMAIS O ACHARÃO! \n\n", TimeUnit.MILLISECONDS,
+		Escreve("Uma porta se abre, no entanto, uma outra porta estava em sua frente, na parte superior da porta se encontra a seguinte mensagem:" +
+						" \n\n", TimeUnit.MILLISECONDS,
 				temp_dialog);
 
 		do {
@@ -274,19 +278,29 @@ public class Jogo {
 		mostrarVidas(vidas);
 		passou = false;
 
-		Escreve("PORTA BLOQUEADA COM SUCESSO! \n\n", TimeUnit.MILLISECONDS, temp_dialog);
-		Escreve("Will volta-se para o computador, senta e começa a buscar informações " +
-						"na qual ele encontrara na carta deixada pelo morto eletrocutado"
-				+ "Em um dos passos estava descrito que ele devia abrir um SOFTWARE chamado " +
-						"'DISABLE MACHINES' Ao clicar, mais um desafio foi proposto \n"
-				+ "Will notou que todos os acessos de administrador, de tudo ao seu redor, " +
-						"tratavasse de desafios computacionais. Em um leve devaneio \n"
-				+ "lembrou-se das sua época de faculdade... Mas de imediato recordou sua grande " +
-						"missão de frente aquele computador, e começou a resolver: \n\n",
+		Escreve("ACESSO AO LABORATORIO LIBERADO! \n\n", TimeUnit.MILLISECONDS, temp_dialog);
+		Escreve("Will então entra em seu laboratório encontra um local totalmente sujo e repleto de armas e corpos. Estava funcionando com pouca " +
+						"energia, apenas com luzes de emergência, ele se dirige a um gerador e liga. As luzes voltam a se acender e então o cenario fica " +
+						"ainda mais assustador. Will se assusta, porém mantém o foco e vai até o computador principal, onde está sendo sinalizado a existência " +
+						"de uma mensagem de vídeo. O vídeo foi feito por sua mulher, nele ela conta então o que estava acontecendo na época: \n\n" +
+						"Will, eu espero que você não precise ver este vídeo e que você acorde antes para nos ajudar, mas se você já está vendo, acredito que " +
+						"eu já não esteja mais viva. Você lembra do nosso projeto e transferir a consciência humana para um robo? Então... quando estavamos " +
+						"quase terminando o projeto, você sofreu um grave atentado. Ficou entre a vida e a morte, em um ato de desespero, usei toda a tecnologia " +
+						"que tinha em minhas mãos para fazer de você o primeiro a usufluir dessa nova tecnologia. Mas no meio do processo, uma cópia do que seria " +
+						"a sua consciência foi corrompida e escapou os nossos sistemas de segurança, se instalando nas redes de todo o mundo. Passamos muito tempo " +
+						"tentando descobrir como desativar essa inteligência, mas não fomos capazes. No começo achavamos que seria algo inofencivo, até que pudemos " +
+						"perceber que essa inteligencia estava alterando dados e informações, para que atritos entre os povos fossem gerados e no final, até acabou " +
+						"contribuindo para a  construção de robos com inteligência artificial, robos os quais ele acabou dominando também. Fizemos os ajustes e contruimos " +
+						"um robo para abrigar a sua consciência. A esperança da humanidade é que você consiga impedir a sua própria consciência. Parte da população se " +
+						"mudou para o subterrâneo para tentar uma nova vida, mas acreditamos que as máquinas não vão deixar isso acontecer por muito tempo. Descobrimos um " +
+						"meio de entrar em contato direto com a rede das máquinas, porém não tentamos usar essa ponte, pois dessa forma poderiamos acabar entregando a " +
+						"existência desse laboratório e também do nosso plano com você. Colocamos um pequeno desafio que vai aparecer assim que esse vídeo acabar, é só " +
+						"você colocar a reposta certa que esse canal de comunicação vai se abrir com a inteligência. Todos nós contamos com você, eu consto com você! Te " +
+						"amo Will, peço desculpa por ter deixado tudo isso acontecer e não ter te deixado pronto antes, daria tudo para te ter de novo em meus braços. \n\n",
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
-			Escreve("--DISABLE MACHINE--", TimeUnit.MILLISECONDS, temp_dialog);
+			Escreve("--CONNECTING WITH I.A--", TimeUnit.MILLISECONDS, temp_dialog);
 			Boolean acertou = perguntas(alternativas6, pergunta6, certa6);
 			if (acertou == false) {
 				vidas--;
@@ -303,10 +317,9 @@ public class Jogo {
 
 		mostrarVidas(vidas);
 		
-		Escreve("Após clicar no software e fazer tudo o que podia, abre-se uma porta, nela, há diversos robôs\n"
-						+ "Nela há mais um desafio\n"
-						+ "Os robôs afirmam que caso ele acerte a próxima pergunta, a Matrix toda será desabilitada, caso " +
-						"contrário, o robô poderá contraatacar.",
+		Escreve("Códigos começaram a aparecer na tela, e então uma voz semelhante a de Will começa a sair dos auto-falantes da sala. \n\n\n\n" +
+						"Quem é que ousa invadir a minha rede de forma direta? Achei que já tivesse blindado completamente as minhas falhas de acesso. Se você " +
+						"encontrou essa falha, você ",
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
