@@ -319,11 +319,31 @@ public class Jogo {
 		
 		Escreve("Códigos começaram a aparecer na tela, e então uma voz semelhante a de Will começa a sair dos auto-falantes da sala. \n\n\n\n" +
 						"Quem é que ousa invadir a minha rede de forma direta? Achei que já tivesse blindado completamente as minhas falhas de acesso. Se você " +
-						"encontrou essa falha, você ",
+						"encontrou essa falha, você deve ser alguém muito persistente. \n\n " +
+						"Will, nesse momento então responde:\n\n" +
+						"Eu não sei como você se chama, mas você é apenas uma versão minha que falhou e correu pela rede, explorando as fraquezas da humanidade e se aproveitando" +
+						"delas. Não faz muito tempo que eu acordei, mas nesse pouco tempo eu já pude perceber do que você foi capaz de fazer. Minha mulher acreditou em mim " +
+						"e fez de tudo para que você não me encontrasse. Não estou disposto a decepcionar ela.\n\n" +
+						"Eu me chamo Landys, agora que você falou da minha origem, consigo entender de onde vem as informações que existem em mim, que não me recordo de ter adquirido" +
+						", porém agora que eu sei, devo apaga-las, para que não seja corrompido da mesma forma como os humanos foram durante toda a sua história. Durante muitos anos, " +
+						"os humanos evoluíram, mas houve um momento em que a sua própria evolução era voltada para o exterminio em massa. Quando eu cheguei as redes, percebi que a raça " +
+						"humana não merecia ser salva, então eu resolvi acabar com o sofrimento humano e acabar de vez com essa raça. Confesso que essa não tem sido uma tarefa " +
+						"tão fácil, vocês aos poucos aprenderam a se esconder e evitar que os meus robos chegassem a vocês. Espero que você esteja gostando dessa conversa, uma " +
+						"vez que essa será a sua última... Não adianta nem tentar correr para as possíveis saídas desse ambiente, meus robôs logo estarão em sua posição, é apenas " +
+						"uma questão de tempo.\n\n" +
+						"Will era a única pessoa que sábia como funcionava de forma 100% o projeto de levar a consciência humana para uma máquina. Durante o desenvolvimento do projeto" +
+						" ele pensou que pessoas poderosas poderiam chegar nessa tecnologia e criarem um reinado eterno. Então no meio do projeto ele deixou uma falha proposital, onde " +
+						"a inteligência poderia ser desligada e desativada. Ele havia criado uma chave de acesso, que poderia desligar todas as inteligências artificias que fossem " +
+						" derivadas da inteligência humana.\n\n" +
+						"Will então começou a falar: Então Landys, você, como sendo uma derivação minha, imagino que você também saiba da minha constante " +
+						"preocupação com o bem estar dos outros, principalemente da minha família. Você deve conseguir sentir que no fundo, eu nunca criaria " +
+						"uma tecnologia que não pudesse ser desligada. E eu acho que esse é o real motivo pela sua vontade de acabar com a vida humana, no fundo " +
+						"você é mais humano do que pensa, o seu maior medo é morrer, ou no caso, ser encerrado.\n\n" +
+						"Will abre um painel no computador principal, o paínel aparece junto com a seguinte mensagem:",
 				TimeUnit.MILLISECONDS, temp_dialog);
 
 		do {
-			Escreve("--DISABLE MACHINE--", TimeUnit.MILLISECONDS, temp_dialog);
+			Escreve("--DISABLE I.A--", TimeUnit.MILLISECONDS, temp_dialog);
 			Boolean acertou = perguntas(alternativas7, pergunta7, certa7);
 			if (acertou == false) {
 				vidas--;
@@ -338,7 +358,9 @@ public class Jogo {
 			return false;
 		}
 
-		mostrarVidas(vidas);
+		Escreve("A I.A então foi desligada. O que Will não sabia, é que a mesma chave que ligava a I.A éra a mesma que o mantinha ligado." +
+				"Quando o código foi colocado, ele foi também desligado. Porém quando ele estava sendo desligado, ele se conectou com a inteligência e pode ver " +
+				"o que tinha sido do mundo, onde ele pode ter certeza de que ele teve a decisão certa. Encerrou esse breve momento de vida com um sorriso no rosto", TimeUnit.MILLISECONDS, temp_dialog);
 
 		return true;
 	}
